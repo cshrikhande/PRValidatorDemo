@@ -1,0 +1,15 @@
+#Your build pipeline references a secret variable named ‘pass’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+variables:
+  p1Arg: 'FirstArgument'
+  p3Arg: 'Third Argument'
+
+steps:
+- task: PowerShellOnTargetMachines@3
+  displayName: 'Run PowerShell on Target Machines'
+  inputs:
+    Machines: '$(vm)'
+    UserName: 'fareast\chshrikh'
+    UserPassword: '$(pass)'
+    ScriptType: FilePath
+    ScriptPath: 'D:\_del\123.ps1'
+    ScriptArguments: '-p1 $(p1Arg) -p2 "Second Arg" -p3 $(p3Arg)'
