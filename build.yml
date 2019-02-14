@@ -8,7 +8,7 @@ steps:
   displayName: 'Run PowerShell on Target Machines'
   inputs:
     Machines: '$(vm)'
-    UserName: 'fareast\chshrikh'
+    UserName: '$(user)'
     UserPassword: '$(pass)'
     ScriptType: FilePath
     ScriptPath: 'D:\_del\123.ps1'
