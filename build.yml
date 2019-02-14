@@ -4,13 +4,12 @@ variables:
   p3Arg: 'Third Argument'
 
 steps:
-- task: PowerShellOnTargetMachines@3
+- task: PowerShellOnTargetMachines@2
   displayName: 'Run PowerShell on Target Machines'
   inputs:
-    Machines: '$(vm)'
-    UserName: '$(user)'
-    UserPassword: '$(pass)'
-    ScriptType: FilePath
+    EnvironmentName: '$(vm)'
+    AdminUserName: '$(user)'
+    AdminPassword: '$(pass)'    
     ScriptPath: 'D:\_del\123.ps1'
     ScriptArguments: '-p1 $(p1Arg) -p2 "Second Arg" -p3 $(p3Arg)'
     Protocol: Http
